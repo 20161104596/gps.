@@ -8,8 +8,15 @@
 
 #include <stdio.h>
 
-int main(int argc, const char * argv[]) {
-    // insert code here...
-    printf("Hello, World!\n");
-    return 0;
+int main()
+{
+    FILE *fp1;
+    fp1=fopen("//Users//a20161104596//Desktop//gps.//input.txt","r");
+    int i;
+    char s[10];
+    for(i=1;i<=10;i++)
+    {
+        sprintf(fp1,"%d",&s[1]);
+    }
+    
 }
