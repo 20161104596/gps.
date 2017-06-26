@@ -14,8 +14,15 @@ int main()
     fp1=fopen("//Users//a20161104596//Desktop//gps.//GPS170510.log","r+");
     char str1[70];
     char str2[70];
-    char lat[9];
-    char time[6];
+    char lat[88];
+    char time[88];
+    char lon[88];
+    char v[88];
+    char head[88];
+    char date[88];
+    char number[88];
+    char state[88]; //GPS状态， 0初始化， 1单点定位， 2码差分， 3无效PPS， 4固定解， 5浮点解， 6正在估算 7，人工输入固定值， 8模拟模式， 9WAAS差分
+    char height[88];
     int i;
     fscanf(fp1,"%s%s",str1,str2);
     printf("结果：%s\n%s\n",str1,str2);
@@ -24,25 +31,49 @@ int main()
     lat[8]='\0';
     printf("纬度：%s\n",lat);
     for(i=0;i<6;i++)
-        lat[i]=str1[i+7];
-    lat[6]='\0';
-    printf("时间：%s\n",lat);
-    for(i=0;i<9;i++)
-        lat[i]=str1[i+27];
-    lat[9]='\0';
-    printf("经度：%s\n",lat);
+        time[i]=str1[i+7];
+    time[6]='\0';
+    printf("时间：%s\n",time);
+        for(i=0;i<9;i++)
+        lon[i]=str1[i+27];
+    lon[9]='\0';
+    printf("经度：%s\n",lon);
     for(i=0;i<5;i++)
-        lat[i]=str1[i+39];
-    lat[5]='\0';
-    printf("地面速率：%s\n",lat);
+        v[i]=str1[i+39];
+    v[5]='\0';
+    printf("地面速率：%s\n",v);
     for(i=0;i<5;i++)
-        lat[i]=str1[i+45];
-    lat[5]='\0';
-    printf("地面航向：%s\n",lat);
+        head[i]=str1[i+45];
+    head[5]='\0';
+    printf("地面航向：%s\n",head);
     for(i=0;i<6;i++)
-        lat[i]=str1[i+51];
-    lat[6]='\0';
-    printf("日期：%s\n",lat);
+        date[i]=str1[i+51];
+    date[6]='\0';
+    printf("日期：%s\n",date);
+    for(i=0;i<8;i++)
+        lat[i]=str2[i+14];
+    lat[8]='\0';
+    printf("纬度：%s\n",lat);
+    for(i=0;i<6;i++)
+        time[i]=str2[i+7];
+    time[6]='\0';
+    printf("时间：%s\n",time);
+    for(i=0;i<9;i++)
+        lon[i]=str2[i+25];
+    lon[9]='\0';
+    printf("经度：%s\n",lon);
+    for(i=0;i<1;i++)
+        state[i]=str2[i+37];
+    state[9]='\0';
+    printf("状态：%s\n",state);
+    for(i=0;i<2;i++)
+        number[i]=str2[i+39];
+    number[9]='\0';
+    printf("卫星数量：%s\n",number);
+    for(i=0;i<2;i++)
+        height[i]=str2[i+39];
+    height[9]='\0';
+    printf("海拔高度：%s\n",height);
     fclose(fp1);
     return 0;
 }
