@@ -91,5 +91,6 @@ int main()
         fprintf(fp2,"海拔高度：%s\n",height);
     }
     fclose(fp1);
+    fclose(fp2);
     return 0;
 }
